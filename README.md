@@ -1,4 +1,4 @@
-# Autonomous HR Agent 🤖📋
+# Autonomous HR Agent 
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
 ![LangChain](https://img.shields.io/badge/LangChain-Agents-1C3C3C)
