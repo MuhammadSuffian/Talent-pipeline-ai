@@ -39,29 +39,29 @@ Screening resumes is repetitive and time-consuming. HR teams routinely spend sig
 
 The idea for this project is to explore how far you can push **autonomy** in that pipeline: given a job description and a folder of resumes, can a set of LLM-driven agents independently extract candidate profiles, score them consistently, and generate a ranked shortlist end to end, without a human reviewing each step?
 
-## 🎬 Demo output
+##  Sample output
 
 ```
-🥇 1. Jane Doe - 8.7/10
-   🚀 Status: ADVANCE (High Priority)
+ 1. Jane Doe - 8.7/10
+    Status: ADVANCE (High Priority)
    Action: Schedule technical interview
    Breakdown: Tech:9.1 | Exp:8.5 | Edu:8.0 | Fit:8.8
    Key Strengths: Strong Python background, relevant ML experience
    Interview Focus: System design, production ML experience
 
-🤔 2. John Smith - 6.2/10
+ 2. John Smith - 6.2/10
    Status: MAYBE (Medium Priority)
    Action: Phone screening required
    Concerns: Limited leadership experience, gap in recent employment
 
-⏱️ PERFORMANCE METRICS - AUTONOMOUS PROCESSING
+ PERFORMANCE METRICS - AUTONOMOUS PROCESSING
    Manual Decision Time: 15 min/candidate
    Automated Decision Time: 0.41 min/candidate
    Efficiency Improvement: 97.3%
    Cost Savings: $233.20 for 10 candidates
 ```
 
-## 🧠 How it works
+##  How it works
 
 The system is organized into two cooperating agents that pass structured data between them — each one independently responsible for its slice of the decision, and each one able to explain *why* it decided what it decided.
 
@@ -116,7 +116,7 @@ summary = engine.get_decision_summary()
 
 Both agents log their own stats, and results are exported to JSON at each stage (`processed_resumes.json`, `candidate_decisions.json`, `decision_summary.json`) so later stages — or a fresh notebook session — can pick up where earlier ones left off without re-running everything.
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 data/
@@ -140,7 +140,7 @@ job desc ─▶│    DecisionEngineAgent   │──▶ candidate_decisions.jso
            (top candidates, ADVANCE/MAYBE/REJECT queues)
 ```
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Component | Tool |
 |---|---|
@@ -152,7 +152,7 @@ job desc ─▶│    DecisionEngineAgent   │──▶ candidate_decisions.jso
 
 The notebook supports **dual LLM strategy** — run entirely free/local via Ollama, or swap in Groq's hosted API for faster/larger-model inference.
 
-## 📂 Repo structure
+##  Repo structure
 
 ```
 .
@@ -168,7 +168,7 @@ The notebook supports **dual LLM strategy** — run entirely free/local via Olla
 └── README.md
 ```
 
-## 🚀 Getting started
+##  Getting started
 
 ### 1. Clone and install dependencies
 
@@ -246,17 +246,17 @@ Adjust the thresholds based on how conservative or aggressive you want the auto-
 ## 📊 Sample output
 
 ```
-🥇 1. Jane Doe - 8.7/10
-   🚀 Status: ADVANCE (High Priority)
+ 1. Jane Doe - 8.7/10
+    Status: ADVANCE (High Priority)
    Action: Schedule technical interview
    Key Strengths: Strong Python background, relevant ML experience
 
-🤔 2. John Smith - 6.2/10
+ 2. John Smith - 6.2/10
    Status: MAYBE (Medium Priority)
    Action: Phone screening required
 ```
 
-## 📈 Performance metrics (the agent tracks on itself)
+##  Performance metrics (the agent tracks on itself)
 
 Every run computes and prints a self-assessment, so you can see the efficiency case at a glance rather than taking it on faith:
 
@@ -267,7 +267,7 @@ Every run computes and prints a self-assessment, so you can see the efficiency c
 
 This is the same data exported to `decision_summary.json`, so you can chart it or feed it into a dashboard separately.
 
-## 🧭 Project status & roadmap
+##  Project status & roadmap
 
 This repo currently implements the **screening and decision** stages of the pipeline (Parts 1–3). Planned next step:
 
@@ -275,14 +275,14 @@ This repo currently implements the **screening and decision** stages of the pipe
 
 Contributions and ideas for extending the pipeline (e.g. interview scheduling, ATS integration, bias auditing on scoring) are welcome.
 
-## ⚠️ Notes & limitations
+##  Notes & limitations
 
 - Scoring quality depends heavily on the underlying LLM — local `llama3.2` via Ollama is free but less consistent than larger hosted models like Groq's `llama-3.3-70b`.
 - The fallback scorer is a safety net, not a substitute for a good LLM response — treat MAYBE/fallback-scored candidates as needing human review, not as a firm signal.
 - Resume and job-description parsing assumes reasonably clean Markdown input; scanned/PDF resumes would need an OCR or conversion step first.
 - This is a learning/portfolio project, not a production HR tool. Any real hiring pipeline using LLM scoring should include human review, bias/fairness auditing, and legal review before making decisions that affect real candidates — automated scoring of protected characteristics or proxies for them can create real liability.
 
-## ❓ FAQ
+##  FAQ
 
 **Do I need an OpenAI or Groq API key to run this?**
 No — by default it runs fully locally and for free via Ollama. Groq is optional if you want faster or larger-model inference.
@@ -299,7 +299,7 @@ That means the LLM's response couldn't be parsed as valid JSON, so the system fe
 **Is this connected to an ATS (Applicant Tracking System)?**
 Not currently — resumes and job descriptions are loaded from local Markdown files. Integrating with an ATS API is a natural extension.
 
-## 🤝 Contributing
+##  Contributing
 
 This started as a personal project to explore autonomous agent design, but contributions are welcome:
 
@@ -309,6 +309,6 @@ This started as a personal project to explore autonomous agent design, but contr
 
 Ideas especially welcome on: Part 4 (communication generation), bias/fairness auditing for the scoring step, and ATS integrations.
 
-## 📄 License
+##  License
 
 MIT — feel free to fork and adapt.
