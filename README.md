@@ -14,27 +14,6 @@ An autonomous, multi-agent recruitment system built with **LangChain** that read
 
 ---
 
-## 📑 Table of Contents
-
-- [Why this exists](#-why-this-exists)
-- [Demo output](#-demo-output)
-- [How it works](#-how-it-works)
-- [Architecture](#️-architecture)
-- [Tech stack](#️-tech-stack)
-- [Repo structure](#-repo-structure)
-- [Getting started](#-getting-started)
-- [Configuration](#-configuration)
-- [Sample output](#-sample-output)
-- [Performance metrics](#-performance-metrics-the-agent-tracks-on-itself)
-- [Project status & roadmap](#-project-status--roadmap)
-- [FAQ](#-faq)
-- [Limitations](#️-notes--limitations)
-- [Contributing](#-contributing)
-- [License](#-license)
-
----
-
-
 Screening resumes is repetitive and time-consuming. HR teams routinely spend significant hours per hire on manual tasks reading resumes, comparing them to a job description, and deciding who moves forward.
 
 The idea for this project is to explore how far you can push **autonomy** in that pipeline: given a job description and a folder of resumes, can a set of LLM-driven agents independently extract candidate profiles, score them consistently, and generate a ranked shortlist end to end, without a human reviewing each step?
