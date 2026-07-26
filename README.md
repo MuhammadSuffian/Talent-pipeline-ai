@@ -6,9 +6,9 @@
 ![Status](https://img.shields.io/badge/Status-Work%20in%20Progress-yellow)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-An autonomous, multi-agent recruitment system built with **LangChain** that reads resumes, scores candidates against a job description, and makes independent **ADVANCE / MAYBE / REJECT** hiring decisions — complete with reasoning, strengths/concerns, and interview focus areas. No human reviews any individual step.
+An autonomous, multi-agent recruitment system built with **LangChain** that reads resumes, scores candidates against a job description, and makes independent **ADVANCE / MAYBE / REJECT** hiring decisions complete with reasoning, strengths/concerns, and interview focus areas. No human reviews any individual step.
 
-> Built as a hands-on exploration of autonomous agent design: chaining together perception (resume parsing), judgment (LLM-based scoring), and decision logic (thresholded hiring calls) into a single pipeline — with graceful fallbacks when the LLM misbehaves.
+> Built as a hands-on exploration of autonomous agent design: chaining together perception (resume parsing), judgment (LLM-based scoring), and decision logic (thresholded hiring calls) into a single pipeline with graceful fallbacks when the LLM misbehaves.
 
 **TL;DR**: drop resumes + a job description into `data/`, run the notebook, get a ranked shortlist with reasoning in a few minutes instead of hours.
 
@@ -34,11 +34,10 @@ An autonomous, multi-agent recruitment system built with **LangChain** that read
 
 ---
 
-## 💡 Why this exists
 
-Screening resumes is repetitive and time-consuming. HR teams routinely spend significant hours per hire on manual tasks — reading resumes, comparing them to a job description, and deciding who moves forward.
+Screening resumes is repetitive and time-consuming. HR teams routinely spend significant hours per hire on manual tasks reading resumes, comparing them to a job description, and deciding who moves forward.
 
-This project explores how far you can push **autonomy** in that pipeline: given a job description and a folder of resumes, can a set of LLM-driven agents independently extract candidate profiles, score them consistently, and generate a ranked shortlist — end to end, without a human reviewing each step?
+The idea for this project is to explore how far you can push **autonomy** in that pipeline: given a job description and a folder of resumes, can a set of LLM-driven agents independently extract candidate profiles, score them consistently, and generate a ranked shortlist end to end, without a human reviewing each step?
 
 ## 🎬 Demo output
 
