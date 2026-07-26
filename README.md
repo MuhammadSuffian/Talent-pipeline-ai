@@ -278,9 +278,37 @@ Contributions and ideas for extending the pipeline (e.g. interview scheduling, A
 
 ## ⚠️ Notes & limitations
 
-- Scoring quality depends heavily on the underlying LLM — local `llama3.2` via Ollama is free but less consistent than larger hosted models.
-- The fallback scorer is a safety net, not a substitute for a good LLM response — treat MAYBE/fallback-scored candidates as needing human review.
-- This is a learning/portfolio project, not a production HR tool. Any real hiring pipeline using LLM scoring should include human review and bias/fairness auditing before making decisions that affect real candidates.
+- Scoring quality depends heavily on the underlying LLM — local `llama3.2` via Ollama is free but less consistent than larger hosted models like Groq's `llama-3.3-70b`.
+- The fallback scorer is a safety net, not a substitute for a good LLM response — treat MAYBE/fallback-scored candidates as needing human review, not as a firm signal.
+- Resume and job-description parsing assumes reasonably clean Markdown input; scanned/PDF resumes would need an OCR or conversion step first.
+- This is a learning/portfolio project, not a production HR tool. Any real hiring pipeline using LLM scoring should include human review, bias/fairness auditing, and legal review before making decisions that affect real candidates — automated scoring of protected characteristics or proxies for them can create real liability.
+
+## ❓ FAQ
+
+**Do I need an OpenAI or Groq API key to run this?**
+No — by default it runs fully locally and for free via Ollama. Groq is optional if you want faster or larger-model inference.
+
+**What format do resumes need to be in?**
+Markdown (`.markdown` / `.md`) plain text. If you have PDFs or DOCX resumes, convert them to Markdown/plain text first.
+
+**Can I use a different LLM provider (OpenAI, Anthropic, etc.)?**
+Yes — since the pipeline is built on LangChain's standard `.invoke()` interface, swapping in `ChatOpenAI`, `ChatAnthropic`, or any other LangChain chat model is a small change in `setup_llm()`.
+
+**Why does a candidate sometimes get a generic "fallback" reasoning?**
+That means the LLM's response couldn't be parsed as valid JSON, so the system fell back to keyword-based sentiment scoring rather than crashing. It's a signal that candidate should get a manual look.
+
+**Is this connected to an ATS (Applicant Tracking System)?**
+Not currently — resumes and job descriptions are loaded from local Markdown files. Integrating with an ATS API is a natural extension.
+
+## 🤝 Contributing
+
+This started as a personal project to explore autonomous agent design, but contributions are welcome:
+
+1. Fork the repo and create a feature branch
+2. Keep new agents consistent with the existing pattern (structured prompt → JSON parsing → graceful fallback → stats tracking)
+3. Open a PR with a short description of what changed and why
+
+Ideas especially welcome on: Part 4 (communication generation), bias/fairness auditing for the scoring step, and ATS integrations.
 
 ## 📄 License
 
