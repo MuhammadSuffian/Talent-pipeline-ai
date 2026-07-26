@@ -207,7 +207,7 @@ Open `Suffian_CO_Autonomous_HR_Agent.ipynb` and run cells top to bottom. The pip
 
 Each part can be re-run independently — later cells reload exported JSON if earlier variables aren't in memory, so you don't need to re-run everything from scratch every session.
 
-## ⚙️ Configuration
+##  Configuration
 
 A few knobs you'll likely want to tune before running against your own data:
 
@@ -222,7 +222,7 @@ A few knobs you'll likely want to tune before running against your own data:
 
 Adjust the thresholds based on how conservative or aggressive you want the auto-advance behavior to be — a smaller gap between `advance_threshold` and `maybe_threshold` means more candidates get flagged for phone screening rather than an automatic yes/no.
 
-## 📊 Sample output
+##  Sample output
 
 ```
  1. Jane Doe - 8.7/10
